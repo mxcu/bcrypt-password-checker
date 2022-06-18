@@ -8,7 +8,7 @@ import (
 	"regexp"
 
 	"golang.org/x/crypto/bcrypt"
-	"golang.org/x/crypto/ssh/terminal"
+	"golang.org/x/term"
 )
 
 func main() {
@@ -27,7 +27,7 @@ func main() {
 
 	if password == "" && file != "-" {
 		fmt.Print("password: ")
-		raw, err := terminal.ReadPassword(int(os.Stdin.Fd()))
+		raw, err := term.ReadPassword(int(os.Stdin.Fd()))
 		if err != nil {
 			fmt.Println(err)
 			os.Exit(1)
